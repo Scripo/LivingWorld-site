@@ -1,18 +1,16 @@
 <section class="signup panel" aria-labelledby="signup-title">
   <h2 id="signup-title">Follow the journey</h2>
-  <p>Get devlog posts by email when there is something worth showing. No spam, unsubscribe anytime.</p>
   {% if site.buttondownUsername %}
+  <p>Get devlog posts by email when there is something worth showing. No spam, unsubscribe anytime.</p>
   <form class="signup-form" action="https://buttondown.com/api/emails/embed-subscribe/{{ site.buttondownUsername }}" method="post" target="_blank">
     <label class="visually-hidden" for="signup-email-{{ signupId or 'main' }}">Email address</label>
     <input id="signup-email-{{ signupId or 'main' }}" type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+    <input type="hidden" name="embed" value="1">
     <button type="submit" class="btn">Subscribe</button>
   </form>
   {% else %}
-  <form class="signup-form" aria-describedby="signup-soon-{{ signupId or 'main' }}" onsubmit="return false">
-    <label class="visually-hidden" for="signup-email-{{ signupId or 'main' }}">Email address</label>
-    <input id="signup-email-{{ signupId or 'main' }}" type="email" placeholder="you@example.com" disabled>
-    <button type="submit" class="btn" disabled>Subscribe</button>
-  </form>
-  <p class="muted small" id="signup-soon-{{ signupId or 'main' }}">Email signup opens soon. Until then, follow along with the <a href="/feed.xml">RSS feed</a>.</p>
+  <p>Email updates are coming soon. You’ll be able to sign up right here to get new devlog posts in your inbox.</p>
+  <p class="signup-soon"><a class="btn btn-ghost" href="/devlog/">Read the devlog</a></p>
+  <p class="muted small">Use a feed reader app? Follow the <a href="/feed/">RSS feed</a>.</p>
   {% endif %}
 </section>

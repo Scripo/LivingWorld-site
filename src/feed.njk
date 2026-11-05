@@ -1,0 +1,57 @@
+---
+layout: base.njk
+title: RSS feed
+permalink: /feed/
+pageClass: feed
+description: Follow the LivingWorld devlog in a feed reader app.
+eleventyExcludeFromCollections: true
+---
+<header class="page-header wrap narrow">
+  <p class="eyebrow">RSS feed</p>
+  <h1>Follow with a feed reader</h1>
+  <p class="lede">A feed reader app checks the devlog for you and shows new posts as soon as they’re published.</p>
+</header>
+
+<div class="wrap narrow feed-page">
+  <section class="panel feed-help" aria-labelledby="feed-how">
+    <h2 id="feed-how">How to add it</h2>
+    <p>Copy this address and paste it into a feed reader such as Feedly, Inoreader or NetNewsWire.</p>
+    <div class="feed-url">
+      <label class="visually-hidden" for="feed-address">Feed address</label>
+      <input id="feed-address" type="text" value="{{ siteUrl }}feed.xml" readonly>
+      <button class="btn" type="button" id="feed-copy">Copy</button>
+    </div>
+    {% if site.buttondownUsername %}
+    <p class="muted small">Not sure what this is? <a href="/subscribe/">Get updates by email</a> instead.</p>
+    {% else %}
+    <p class="muted small">Not sure what this is? <a href="/subscribe/">Email updates</a> are on their way and will be simpler.</p>
+    {% endif %}
+  </section>
+
+  <h2 class="feed-recent">Recent posts</h2>
+  <div class="post-list stacked">
+    {%- for post in collections.posts | head(10) %}
+    <a class="post-card panel" href="{{ post.url }}">
+      <p class="eyebrow"><time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time></p>
+      <h3>{{ post.data.title }}</h3>
+      {% if post.data.summary %}<p>{{ post.data.summary }}</p>{% endif %}
+    </a>
+    {%- endfor %}
+  </div>
+</div>
+
+<script>
+  (function () {
+    var input = document.getElementById("feed-address");
+    var btn = document.getElementById("feed-copy");
+    input.addEventListener("focus", function () { input.select(); });
+    btn.addEventListener("click", function () {
+      function done() { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy"; }, 2000); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(input.value).then(done, function () { input.select(); });
+      } else {
+        input.select();
+      }
+    });
+  })();
+</script>

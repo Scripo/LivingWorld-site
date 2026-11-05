@@ -33,6 +33,8 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPlugin(feedPlugin, {
     type: "atom",
+    // Raw feed for feed reader apps. People are linked to /feed/ instead,
+    // which explains what a feed is (browsers show feed.xml as raw code).
     outputPath: "/feed.xml",
     collection: { name: "posts", limit: 20 },
     metadata: {
