@@ -71,5 +71,9 @@
       <p class="fineprint">Images marked “Concept art” show intended direction, not the current game. © {{ year }} {{ site.author }}.</p>
     </div>
   </footer>
+  {%- if site.cloudflareAnalyticsToken %}
+  <!-- Cloudflare Web Analytics: cookie-free visit counts -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ site.cloudflareAnalyticsToken }}"}'></script>
+  {%- endif %}
 </body>
 </html>
