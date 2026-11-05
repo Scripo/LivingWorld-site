@@ -1,0 +1,18 @@
+<section class="signup panel" aria-labelledby="signup-title">
+  <h2 id="signup-title">Follow the journey</h2>
+  <p>Get devlog posts by email when there is something worth showing. No spam, unsubscribe anytime.</p>
+  {% if site.buttondownUsername %}
+  <form class="signup-form" action="https://buttondown.com/api/emails/embed-subscribe/{{ site.buttondownUsername }}" method="post" target="_blank">
+    <label class="visually-hidden" for="signup-email-{{ signupId or 'main' }}">Email address</label>
+    <input id="signup-email-{{ signupId or 'main' }}" type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+    <button type="submit" class="btn">Subscribe</button>
+  </form>
+  {% else %}
+  <form class="signup-form" aria-describedby="signup-soon-{{ signupId or 'main' }}" onsubmit="return false">
+    <label class="visually-hidden" for="signup-email-{{ signupId or 'main' }}">Email address</label>
+    <input id="signup-email-{{ signupId or 'main' }}" type="email" placeholder="you@example.com" disabled>
+    <button type="submit" class="btn" disabled>Subscribe</button>
+  </form>
+  <p class="muted small" id="signup-soon-{{ signupId or 'main' }}">Email signup opens soon. Until then, follow along with the <a href="/feed.xml">RSS feed</a>.</p>
+  {% endif %}
+</section>

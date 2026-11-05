@@ -1,0 +1,25 @@
+---
+layout: base.njk
+title: Follow
+permalink: /subscribe/
+pageClass: subscribe
+description: Get LivingWorld devlog updates by email or RSS.
+---
+<header class="page-header wrap narrow">
+  <p class="eyebrow">Follow development</p>
+  <h1>Hear when the world changes</h1>
+  <p class="lede">New devlog posts, the first playable builds, and videos. Sent only when there’s something worth showing.</p>
+</header>
+
+<div class="wrap narrow">
+  {% set signupId = "page" %}
+  {% include "signup.njk" %}
+
+  <div class="prose">
+    <h2>Other ways to follow</h2>
+    <ul>
+      <li><strong>RSS:</strong> add <a href="/feed.xml">the devlog feed</a> to any feed reader.</li>
+      {% if site.youtubeChannel %}<li><strong>YouTube:</strong> short videos on <a href="{{ site.youtubeChannel }}">the channel</a>.</li>{% endif %}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+{
+  "name": "livingworld-site",
+  "private": true,
+  "description": "Website and devlog for LivingWorld",
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.8",
+    "@11ty/eleventy-plugin-rss": "^2.0.4"
+  }
+}

@@ -1,0 +1,54 @@
+---
+layout: base.njk
+title: LivingWorld
+pageClass: home
+---
+<section class="hero">
+  <div class="hero-art" role="img" aria-label="Concept art: a primitive camp of tents and fires beside a river in a forested valley">
+    <span class="badge">Concept art</span>
+  </div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">A fantasy world simulation · In early development</p>
+    <h1>Guide your people<br>across generations</h1>
+    <p class="lede">You are an ancestral spirit. Your band is small, the world is vast, and it does not wait for you. Leaders grow old, scouts go missing, and families split. The spirit remains.</p>
+    <div class="actions">
+      <a class="btn" href="/subscribe/">Follow development</a>
+      <a class="btn btn-ghost" href="/about/">About the game</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap pillars">
+  <div class="pillar">
+    <h2>A spirit, not a king</h2>
+    <p>You guide one community through its leaders. They bring you proposals, and you approve, change or decline them, or trust them to decide.</p>
+  </div>
+  <div class="pillar">
+    <h2>A world that lives without you</h2>
+    <p>Other bands hunt, migrate, split apart and discover new crafts on their own. You will often meet the results of things you never caused.</p>
+  </div>
+  <div class="pillar">
+    <h2>Stories, not scripts</h2>
+    <p>Hard winters, lucky discoveries and lost leaders all come from the simulation, so no two histories turn out the same.</p>
+  </div>
+</section>
+
+<section class="wrap latest">
+  <div class="section-head">
+    <h2>From the devlog</h2>
+    <a href="/devlog/">All posts →</a>
+  </div>
+  <div class="post-list">
+    {%- for post in collections.posts | head(3) %}
+    <a class="post-card panel" href="{{ post.url }}">
+      <p class="eyebrow"><time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time></p>
+      <h3>{{ post.data.title }}</h3>
+      {% if post.data.summary %}<p>{{ post.data.summary }}</p>{% endif %}
+    </a>
+    {%- endfor %}
+  </div>
+</section>
+
+<div class="wrap narrow">
+  {% include "signup.njk" %}
+</div>

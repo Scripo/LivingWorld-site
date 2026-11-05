@@ -1,0 +1,26 @@
+---
+layout: base.njk
+title: Devlog
+permalink: /devlog/
+pageClass: devlog
+description: Development updates from LivingWorld.
+---
+<header class="page-header wrap narrow">
+  <p class="eyebrow">Devlog</p>
+  <h1>Notes from the making of a world</h1>
+  <p class="lede">Progress updates, design decisions, and the odd story the simulation tells by itself. <a href="/feed.xml">RSS feed</a></p>
+</header>
+
+<section class="wrap narrow">
+  <div class="post-list stacked">
+    {%- for post in collections.posts %}
+    <a class="post-card panel" href="{{ post.url }}">
+      <p class="eyebrow"><time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time></p>
+      <h2>{{ post.data.title }}</h2>
+      {% if post.data.summary %}<p>{{ post.data.summary }}</p>{% endif %}
+    </a>
+    {%- else %}
+    <p class="muted">The first post is on its way.</p>
+    {%- endfor %}
+  </div>
+</section>

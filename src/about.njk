@@ -1,0 +1,91 @@
+---
+layout: base.njk
+title: The Game
+permalink: /about/
+pageClass: about
+description: What LivingWorld is, the peoples of its world, and what exists in the game today.
+---
+<header class="page-header wrap narrow">
+  <p class="eyebrow">About the game</p>
+  <h1>A living world, and the spirit who watches over one people</h1>
+  <p class="lede">LivingWorld is a fantasy simulation set in a generated world that develops on its own. You guide a single band of people across generations, from a few dozen wanderers to whatever they become.</p>
+</header>
+
+<section class="wrap narrow prose">
+  <h2>The premise</h2>
+  <p>You are not the chief. You are the band’s <strong>ancestral spirit</strong>. Leaders are mortal and come and go, but you remain. You can instruct a leader directly, take their advice, or hand whole responsibilities over to them. Instructions still have to work in the real world. People need food and time, tools need materials, and scouts can lose their way.</p>
+  <p>The world doesn’t revolve around you. Other bands follow the same rules and make their own choices. They migrate, split apart, find new resources and learn new crafts whether you are watching or not.</p>
+
+  <h2>How a game begins</h2>
+  <ol>
+    <li><strong>Generate a world.</strong> The geography, rivers, forests and resources shape everything that follows.</li>
+    <li><strong>Choose a people:</strong> Human, Dwarf, Elf or Goblin.</li>
+    <li><strong>Choose a band</strong> from the communities that actually exist in that world.</li>
+    <li><strong>Choose a leader</strong> from real members of that band, then begin on Day 0.</li>
+  </ol>
+  <p>Your band might stay small and free. It might become hunters, crafters, traders or raiders, or settle down and grow into something much larger. Nothing in the game picks that path for you.</p>
+</section>
+
+<section class="wrap peoples" aria-labelledby="peoples-title">
+  <div class="section-head center">
+    <h2 id="peoples-title">The peoples of the world</h2>
+    <p class="muted">Each people has tendencies, not limits. A goblin can still become a great smith.</p>
+  </div>
+  <div class="people-grid">
+    {%- set peoples = [
+      ["human", "Humans", "Adaptable and culturally flexible, with fewer extreme starting strengths."],
+      ["dwarf", "Dwarves", "Drawn to stone, mining and the craft of working what lies underground."],
+      ["elf", "Elves", "At home in forests, with deep knowledge of plants, animals and the land."],
+      ["goblin", "Goblins", "Keen observers of living things, with a knack for herding and breeding."]
+    ] %}
+    {%- for p in peoples %}
+    <article class="people-card panel">
+      <div class="concept-frame">
+        <img src="/assets/img/concept/leader-{{ p[0] }}.jpg" alt="Concept art: an elderly {{ p[1] | lower }} leader in furs, holding a carved staff" loading="lazy" decoding="async" width="520" height="529">
+        <span class="badge">Concept art</span>
+      </div>
+      <h3>{{ p[1] }}</h3>
+      <p>{{ p[2] }}</p>
+    </article>
+    {%- endfor %}
+  </div>
+</section>
+
+<section class="wrap narrow prose">
+  <h2>What exists today</h2>
+  <p>LivingWorld is early, and most of the work so far has gone into the simulation underneath. Here is what runs today:</p>
+  <ul>
+    <li>A generated world that the simulation advances one day at a time, through 365-day years and four seasons.</li>
+    <li>Bands of all four peoples that gather, hunt, keep animals, migrate and sometimes split into new communities.</li>
+    <li>Named characters such as leaders, scouts and crafters who grow out of each band’s real members.</li>
+    <li>Scouting expeditions that bring back reports of what they actually saw, including when they are unsure.</li>
+    <li><strong>Craft Circles</strong>, small groups of crafters who make tools, teach newcomers and pass their knowledge on.</li>
+    <li>A playable prototype with a map of the world, the Day-0 choice of people, band and leader, and leaders who bring decisions to you.</li>
+  </ul>
+  <p>The 3D camp and the polished interface in the images on this site are <strong>concept art</strong>. They show where the game is heading, not what it looks like today. Real screenshots and footage will appear in the <a href="/devlog/">devlog</a> as they become worth showing.</p>
+</section>
+
+<section class="wrap gallery-section" aria-labelledby="gallery-title">
+  <div class="section-head center">
+    <h2 id="gallery-title">Concept art: where the game is heading</h2>
+    <p class="muted">Interface and art direction references. Names, numbers and details in these images are placeholders.</p>
+  </div>
+  <div class="gallery">
+    {%- set gallery = [
+      ["camp-ui-concept.jpg", "The camp, home screen of the game, with your leader’s advice in the corner.", "Concept art: a 3D camp view with a leader portrait, a management bar and a minimap"],
+      ["leader-decision-dialog.jpg", "A leader brings a proposal: approve it, change it or decline it.", "Concept art: a leader decision dialog with Approve, Modify and Decline buttons"],
+      ["species-selection.jpg", "Choosing a people at the start of a new game.", "Concept art: four cards for Human, Dwarf, Elf and Goblin"],
+      ["regional-map.jpg", "The regional map, with the unknown fading into mist.", "Concept art: a regional map with fog of war"],
+      ["craft-circles.jpg", "Craft Circles: who makes what, and who is learning.", "Concept art: a Craft Circles management screen"],
+      ["band-splitting.jpg", "When a band splits, you choose which group to follow.", "Concept art: a band splitting screen with two resulting groups side by side"]
+    ] %}
+    {%- for g in gallery %}
+    {% set img = g[0] %}{% set caption = g[1] %}{% set alt = g[2] %}{% set w = 1400 %}{% set h = 788 %}
+    {% include "concept.njk" %}
+    {%- endfor %}
+  </div>
+</section>
+
+<div class="wrap narrow">
+  {% include "signup.njk" %}
+</div>

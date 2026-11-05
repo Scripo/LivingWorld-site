@@ -1,0 +1,18 @@
+---
+layout: base.njk
+pageClass: post
+---
+<article class="post wrap narrow">
+  <header class="post-header">
+    <p class="eyebrow"><a href="/devlog/">Devlog</a> · <time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time></p>
+    <h1>{{ title }}</h1>
+    {% if summary %}<p class="lede">{{ summary }}</p>{% endif %}
+  </header>
+  <div class="prose">
+    {{ content | safe }}
+  </div>
+  <footer class="post-footer">
+    {% include "signup.njk" %}
+    <p><a href="/devlog/">← All devlog posts</a></p>
+  </footer>
+</article>

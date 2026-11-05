@@ -1,0 +1,7 @@
+<figure class="concept{% if wide %} concept-wide{% endif %}">
+  <div class="concept-frame">
+    <img src="/assets/img/concept/{{ img }}" alt="{{ alt }}" loading="lazy" decoding="async"{% if w %} width="{{ w }}" height="{{ h }}"{% endif %}>
+    <span class="badge">Concept art</span>
+  </div>
+  {% if caption %}<figcaption>{{ caption }}</figcaption>{% endif %}
+</figure>
