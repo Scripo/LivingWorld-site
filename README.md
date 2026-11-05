@@ -1,7 +1,7 @@
 # LivingWorld website
 
 The website and devlog for LivingWorld, built with [Eleventy](https://www.11ty.dev/)
-and published to GitHub Pages at https://scripo.github.io/livingworld-site/.
+and published to GitHub Pages at https://scripo.github.io/LivingWorld-site/.
 
 ## Write a devlog post
 

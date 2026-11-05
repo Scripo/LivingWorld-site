@@ -18,13 +18,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
+      # Gives the exact published address, e.g. https://scripo.github.io/LivingWorld-site
+      - id: pages
+        uses: actions/configure-pages@v5
       - run: npm ci
-      - run: npx @11ty/eleventy --pathprefix=/livingworld-site/
+      - run: npx @11ty/eleventy --pathprefix="${{ steps.pages.outputs.base_path }}/"
+        env:
+          SITE_URL: ${{ steps.pages.outputs.base_url }}/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
