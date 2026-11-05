@@ -6,10 +6,23 @@
   {%- set pageTitle = (title + " · " + site.title) if title and title != site.title else (site.title + " · " + site.tagline) %}
   <title>{{ pageTitle }}</title>
   <meta name="description" content="{{ description or site.description }}">
+  {%- set pageUrl = siteUrl + (page.url | replace("/", "", 1) if page.url else "") %}
+  <link rel="canonical" href="{{ pageUrl }}">
+  <!-- Link previews (Discord, Reddit, X, Bluesky, Slack, iMessage) -->
+  <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:title" content="{{ pageTitle }}">
-  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:description" content="{{ description or summary or site.description }}">
   <meta property="og:type" content="{{ 'article' if layout == 'post.njk' else 'website' }}">
-  <meta property="og:image" content="{{ siteUrl }}assets/img/concept/camp-hero.jpg">
+  <meta property="og:url" content="{{ pageUrl }}">
+  <meta property="og:image" content="{{ siteUrl }}assets/img/share-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Concept art of a primitive camp beside a river, with the LivingWorld logo and the line: Guide your people across generations.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ pageTitle }}">
+  <meta name="twitter:description" content="{{ description or summary or site.description }}">
+  <meta name="twitter:image" content="{{ siteUrl }}assets/img/share-card.jpg">
+  <meta name="twitter:image:alt" content="Concept art of a primitive camp beside a river, with the LivingWorld logo and the line: Guide your people across generations.">
   <meta name="theme-color" content="#121110">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Devlog" href="/feed.xml">
