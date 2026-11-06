@@ -295,6 +295,9 @@ p { margin: 0 0 1em; }
   border-left: 18px solid var(--gold-soft); border-top: 12px solid transparent; border-bottom: 12px solid transparent;
 }
 .short figcaption { margin-top: .6rem; font-size: 1rem; }
+.short-link { display: block; margin-top: .2rem; font-size: .92rem; }
+.prose .short { max-width: 300px; margin: 2rem auto; text-align: center; }
+.prose .short-frame { margin: 0 auto; }
 .empty { padding: 2.5rem 2rem; margin: 1rem auto 4rem; text-align: center; }
 
 /* Footer */

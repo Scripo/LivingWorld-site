@@ -1,0 +1,9 @@
+{#- One YouTube Short. Set `v` to an entry from videos.json ({ id, title }). -#}
+<figure class="short">
+  <button class="short-frame" type="button" data-video="{{ v.id }}" aria-label="Play: {{ v.title }}">
+    <img src="https://i.ytimg.com/vi/{{ v.id }}/hqdefault.jpg" alt="" loading="lazy" decoding="async">
+    <span class="play" aria-hidden="true"></span>
+  </button>
+  <figcaption>{{ v.title }} <a class="short-link" href="https://www.youtube.com/shorts/{{ v.id }}">Watch on YouTube</a></figcaption>
+</figure>
+<script src="/assets/js/shorts.js" defer></script>
